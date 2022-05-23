@@ -1,7 +1,7 @@
 /**
- * @file spiral-traverse.cpp
+ * @file spiral-traverse_recursive.cpp
  * @author Peng (pengcheng.xu@tufts.edu)
- * @brief hacking spiral-traverse problem
+ * @brief hacking spiral-traverse problem using recursive method
  * @version 0.1
  * @date 2022-05-22
  * 
@@ -37,22 +37,16 @@
 
 
 
-// O(n) time | O(n) space - where n is the total number of elements in the array
-// O(n) space cuz we use a res array to store the result value
-#include <vector>
+// O(n) time | O(1/2 N) space - where n is the total number of elements in the array, N is one demension length
+// O(N) space cuz the calling stack has 1/2 N funtion frames.
 
 using namespace std;
 
-vector<int> spiralTraverse( vector<vector<int> > array) {
-  // result container
-  vector<int>res{};
+void helper ( vector< vector<int> > &array, int startRow, int startCol, int endRow, int endCol, vector<int> &res) 
+{
+	if ( startRow > endRow || startCol > endCol ) return;
 	
-	int startRow = 0, startCol = 0;
-	int endRow = array.size() - 1, endCol = array[0].size() - 1;
-	
-	// the condition when we need to continue
-	while ( startRow <= endRow && startCol <= endCol ) {
-		// going through the row from left to right
+	  // going through the row from left to right
 		for ( int col = startCol; col <= endCol; ++col ) {
 			res.push_back( array[startRow][col] );
 		}
@@ -80,11 +74,19 @@ vector<int> spiralTraverse( vector<vector<int> > array) {
 			res.push_back( array[row][startCol] );
 		}
 		
-		// update the indices inward
-		startRow++;
-		startCol++;
-		endRow--;
-		endCol--;
-	}
-	return res;
+		// invoke recursive call
+		helper( array, ++startRow, ++startCol, --endRow, --endCol, res );
+} 
+
+
+
+vector<int> spiralTraverse(vector<vector<int>> array) {
+	// result container
+  vector<int> res {};
+	
+	int startRow = 0, startCol = 0;
+	int endRow = array.size() - 1, endCol = array[0].size() - 1;
+	
+	helper(array, startRow, startCol, endRow, endCol, res);
+  return res;
 }
