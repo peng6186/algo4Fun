@@ -39,7 +39,7 @@ using namespace std;
 
 vector<int> arrayOfProducts(vector<int> array) {
 
-  // declare three vectors
+  // declare only one vector
   vector<int> products (array.size(), 1);
 
   // integrate leftProducts into products
