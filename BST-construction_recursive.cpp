@@ -1,6 +1,6 @@
 /**
  * @file BST-construction_recursive.cpp
- * @author your name (you@domain.com)
+ * @author Peng (pengcheng.xu@tufts.edu)
  * @brief hacking BST construction (including insert, contain, & remove ) using recursive method
  * @version 0.1
  * @date 2022-05-26
