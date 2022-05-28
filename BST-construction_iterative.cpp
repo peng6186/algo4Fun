@@ -1,7 +1,7 @@
 /**
  * @file BST-construction_iterative.cpp
  * @author Peng (pengcheng.xu@tufts.edu)
- * @brief 
+ * @brief Implement BST using iterative method, which could has a better space complexity than recursive way
  * @version 0.1
  * @date 2022-05-27
  * 
