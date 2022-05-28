@@ -11,7 +11,6 @@
 
 /**
 
-
   Write a BST class for a Binary Search Tree. The class should support:
     Inserting values with the insert method.
     Removing values with the remove method; this method should only remove the first instance of a given value.
@@ -40,8 +39,6 @@
      1        12  14
 
  */
-
-
 
 #include <vector>
 using namespace std;
